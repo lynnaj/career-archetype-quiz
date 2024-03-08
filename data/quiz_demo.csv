@@ -1,0 +1,21 @@
+﻿question,option,input_type,input_id,dependence,dependence_value,required
+What motivates you at work?,a) Recognition and praise from colleagues and superiors,mc,q1,NA,NA,TRUE
+What motivates you at work?,b) Achieving tangible goals and seeing concrete results,mc,q1,NA,NA,TRUE
+What motivates you at work?,c) Autonomy and the ability to pursue my passions,mc,q1,NA,NA,TRUE
+What motivates you at work?,d) Constantly pushing boundaries and exploring new ideas,mc,q1,NA,NA,TRUE
+How do you handle workplace conflicts?,a) I try to diffuse tension with humor and charm,mc,q2,NA,NA,TRUE
+How do you handle workplace conflicts?,b) I address the issue head-on with clear communication,mc,q2,NA,NA,TRUE
+How do you handle workplace conflicts?,"c) I prefer to avoid conflicts altogether, seeking harmony whenever possible",mc,q2,NA,NA,TRUE
+How do you handle workplace conflicts?,"d) I approach conflicts creatively, finding unique solutions that satisfy everyone",mc,q2,NA,NA,TRUE
+How do you prefer to approach a new project?,a) Collaborating with others to brainstorm ideas and bounce off each other's creativity,mc,q3,NA,NA,TRUE
+How do you prefer to approach a new project?,b) Researching extensively and carefully planning out every step,mc,q3,NA,NA,TRUE
+How do you prefer to approach a new project?,c) Taking a hands-off approach and allowing ideas to develop organically,mc,q3,NA,NA,TRUE
+How do you prefer to approach a new project?,"d) Diving in headfirst, experimenting with different approaches until something clicks",mc,q3,NA,NA,TRUE
+How do you handle criticism or feedback from your boss?,"a) I take it in stride, using it as an opportunity for growth and improvement",mc,q4,NA,NA,TRUE
+How do you handle criticism or feedback from your boss?,b) I appreciate constructive criticism and use it to refine my work,mc,q4,NA,NA,TRUE
+How do you handle criticism or feedback from your boss?,c) I prefer positive reinforcement but can handle criticism if it's delivered tactfully,mc,q4,NA,NA,TRUE
+How do you handle criticism or feedback from your boss?,d) I actively seek feedback and thrive on the challenge of refining my ideas,mc,q4,NA,NA,TRUE
+How do you envision your long-term career goals?,a) Climbing the corporate ladder and making a name for myself in my industry,mc,q5,NA,NA,TRUE
+How do you envision your long-term career goals?,b) Mastering my craft and becoming an expert in my field,mc,q5,NA,NA,TRUE
+How do you envision your long-term career goals?,c) Pursuing a path that allows for flexibility and personal fulfillment,mc,q5,NA,NA,TRUE
+How do you envision your long-term career goals?,"d) Continuously evolving and innovating, leaving a lasting impact on my industry",mc,q5,NA,NA,TRUE
