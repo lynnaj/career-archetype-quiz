@@ -32,7 +32,9 @@ character_image <- function(character) {
         request(query) |>
         req_perform()
     google_response <- results |> resp_body_json()
-    image_link <- google_response$items[[1]][[11]]$metatags[[1]]$'og:image'
+    image_link_1 <- google_response$items[[1]][[11]]$metatags[[1]]$'og:image'
+    image_link_2 <- google_response$items[[2]][[11]]$metatags[[1]]$'og:image'
+    image_link <- ifelse(is.null(image_link_1), image_link_2, image_link_1)
     image_link
 }
 
@@ -81,15 +83,20 @@ server <- function(input, output, session) {
         print(name_response)
         
         link <- character_image(name_response)
+        print(link)
         
-        image = paste("<img src=\"", link, "\">", sep="")
-        print(image)
+        base = '<img src="https://as2.ftcdn.net/v2/jpg/01/59/07/19/1000_F_159071974_fHQ1UzIy4oDeTSgpjZaChMQcbJIiTYqz.jpg">'
+        print(base)
+        
+        image_html <- gsub('src="[^"]*"', paste0('src="', link, '"'), base)
+        print(image_html)
         
         showModal(modalDialog(
-      title = paste("Congrats, you're like ", name_response, " !") ,
-      HTML(image),
-      text_response
-    ))
+          title = paste("Congrats, you're like", name_response , "!"),
+          HTML(image_html),
+          br(),
+          text_response
+        ))
          
   })
 }
