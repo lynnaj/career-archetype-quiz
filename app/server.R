@@ -1,5 +1,4 @@
 library(shiny)
-library(jsonlite)
 library(httr2)
 
 df_questions <- dkuReadDataset("quiz_demo", samplingMethod="head", nbRows=100000)
@@ -7,7 +6,7 @@ df_questions <- dkuReadDataset("quiz_demo", samplingMethod="head", nbRows=100000
 chat <- function(body) {
     user_message <- list(list(role = "user", content = message))
     base_url <- "https://api.openai.com/v1"
-    api_key <- "<add-openai-api-key>"
+    api_key <- <add-open-ai-key>
     req <- request(base_url)
     resp <-
         req |> 
@@ -22,9 +21,9 @@ chat <- function(body) {
     openai_chat_response <- resp |> resp_body_json(simplifyVector = TRUE)
     openai_chat_response$choices$message$content
 }
-
+#&imgSize=SMALL
 character_image <- function(character) {
-    prefix = "https://customsearch.googleapis.com/customsearch/v1?cx=801ec74cad7f94243&imgSize=SMALL&q="
+    prefix = "https://customsearch.googleapis.com/customsearch/v1?cx=<add-cx-id-here>&q="
     search_q = gsub(" ", "%20", character)
     suffix = "&safe=active&key=<add-google-api-key>"
     query = paste(prefix, search_q, suffix, sep = "")
@@ -54,7 +53,6 @@ server <- function(input, output, session) {
                 list(role = "system", content = "You are an expert on giving insightful career advice.  You are also funny and charming.  
                         Compare the user to a famous TV or movies character. For example, characters like:
                         Michael Scott from 'The Office' for being a Social Butterfly,
-                        Leslie Knope from 'Parks and Recreation' for being a perfectionist, 
                         Liz Lemon from '30 Rock' for being a Free Spirit, 
                         Sheldon Cooper from 'The Big Bang Theory' for being an Innovator.
                         Only make 2 comparisons to the chosen character.  Give insightful career advice.  Limit your response to 5 sentences."),
@@ -85,11 +83,11 @@ server <- function(input, output, session) {
         link <- character_image(name_response)
         print(link)
         
-        base = '<img src="https://as2.ftcdn.net/v2/jpg/01/59/07/19/1000_F_159071974_fHQ1UzIy4oDeTSgpjZaChMQcbJIiTYqz.jpg">'
-        print(base)
-        
-        image_html <- gsub('src="[^"]*"', paste0('src="', link, '"'), base)
-        print(image_html)
+        # Remove any characters after .jpg or .jpeg or .png
+        clean_link <- sub("\\.(jpg|jpeg|png).*", ".\\1", link)
+                
+        image_html <- paste0('<center><img src="', clean_link, '"></center>')
+        print(cat(image_html))
         
         showModal(modalDialog(
           title = paste("Congrats, you're like", name_response , "!"),
